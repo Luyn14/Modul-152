@@ -9,12 +9,13 @@
 </script>
 
 <div class="container">
-<h3 class="center">Admin</h3>
+<h1 class="center">Admin</h1>
 </div>
 
 </div>
 <hr>
 <div class="container"> 
+<h3 class="center">Benutzer</h3>
     	<div class="row">
 		@foreach($users as $user)
 
@@ -30,6 +31,7 @@
 	</div>
 </div>
 <div class="container">
+<h3 class="center">Alben</h3>
 	<div class="row">
 		@foreach($albums as $album)
 

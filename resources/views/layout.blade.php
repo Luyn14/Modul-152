@@ -10,15 +10,29 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/app.css">
-
+<?php
+          $userLog = auth()->user();
+          if ($userLog != null) {
+            $userLog = auth()->user()->id;
+          }
+          ?>
 </head>
 <body>
 <ul>
   <li><a id="navHome" href="/home">Home</a></li>
-  <li><a id="navAddImage" href="/add-image">Add Image</a></li>
+  <?php if( $userLog != null){     ?>
+    <li><a id="navAddImage" href="/add-image">Add Image</a></li>
+  <?php  } ?>
   <li><a id="navViewImage" href="/view-image">View Image</a></li>
-  <li><a id="navAddAlbum" href="/add-album">Add Album</a></li>
-  <li><a id="navAdmin" href="/admin">Admin</a></li>
+  <?php if( $userLog != null){     ?>
+    <li><a id="navAddAlbum" href="/add-album">Add Album</a></li>
+  <?php  } ?>
+  <?php if( $userLog != null) { 
+          if ($user->id = 1) {?>
+            <li><a id="navAdmin" href="/admin">Admin</a></li>
+  <?php }}?>
+
+
 </ul>
 
 

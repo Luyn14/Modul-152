@@ -96,7 +96,7 @@ Route::get(
 
 Route::post(
     'edit_user/{userId}',
-    [AlbumsController::class, 'updateUser']
+    [UserController::class, 'updateUser']
 );
 
 

@@ -10,12 +10,12 @@
         @csrf
             <div class="mb-3">
                 <label for="firstname" class="form-label">Firstname</label>
-                <input type="firstname" class="form-control" id="firstname" aria-describedby="firstname" name="firstname" value="" >
+                <input type="firstname" class="form-control" id="firstname" aria-describedby="firstname" name="firstname" value="{{ $user->firstname }}" >
 
             </div>
             <div class="mb-3">
                 <label for="lastname" class="form-label">Lastname</label>
-                <input type="lastname" class="form-control" id="lastname" name="lastname" value="" >
+                <input type="lastname" class="form-control" id="lastname" name="lastname" value="{{ $user->lastname }}" >
 
             </div>
             <div class="mb-3">

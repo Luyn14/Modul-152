@@ -9,11 +9,17 @@ use Illuminate\Http\Request;
 
 class AlbumsController extends Controller
 {
+
+
+
     //Add Image
     public function addImage()
     {
+        $userId = auth()->user()->id;
+
         return view('add_image', [
-            'albums' => Album::all(),
+            'albums' => Album::where('user_id', '=', $userId)->get(),
+            'user' => auth()->user(),
         ]);
     }
 
@@ -47,11 +53,12 @@ class AlbumsController extends Controller
     public function editImage(int $imageId)
     {
 
+        $userId = auth()->user()->id;
 
         return view('edit_image', [
 
             'image' => Image::find($imageId),
-            'albums' => Album::all(),
+            'albums' => Album::where('user_id', '=', $userId)->get(),
 
         ]);
     }

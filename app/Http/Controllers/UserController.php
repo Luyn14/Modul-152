@@ -36,7 +36,9 @@ class UserController extends Controller
 
     public function login()
     {
-        return view('/welcome');
+        return view('/welcome', [
+            'user' => auth()->user(),
+        ]);
     }
 
 
