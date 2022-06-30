@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 [
                     'firstname' => "Nick",
                     'lastname' => "Luu",
-                    'password' => '$2y$10$XSTGIriHqrnd3prn4neEkuzCt52f6DvYekWlH95tAMTG.f2gickz2',
+                    'password' => bcrypt(12345678),
                 ],
             ]
         );

@@ -32,6 +32,7 @@ class AlbumsController extends Controller
         return view('add_album', [
 
             'images' => Image::all(),
+            'user' => auth()->user(),
 
 
         ]);
@@ -45,6 +46,7 @@ class AlbumsController extends Controller
         return view('edit_album', [
 
             'album' => Album::find($albumId),
+            'user' => auth()->user(),
 
         ]);
     }
@@ -59,6 +61,7 @@ class AlbumsController extends Controller
 
             'image' => Image::find($imageId),
             'albums' => Album::where('user_id', '=', $userId)->get(),
+            'user' => auth()->user(),
 
         ]);
     }
@@ -117,6 +120,15 @@ class AlbumsController extends Controller
         return redirect('/profil');
     }
 
+    public function deleteAlbum(Request $request, int $albumId)
+    {
+        $album = Album::find($albumId);
+
+        $album->delete();
+
+        return redirect('/home');
+    }
+
     //Store Image
     public function storeImage(Request $request)
     {
@@ -142,12 +154,23 @@ class AlbumsController extends Controller
         return redirect('/home');
     }
 
+    public function deleteImage(Request $request, int $imageId)
+    {
+        $image = Image::find($imageId);
+
+        $image->delete();
+
+        return redirect('/home');
+    }
+
 
     //View image
     public function viewImage()
     {
         $imageData = Image::all();
-        return view('view_image', compact('imageData'));
+        return view('view_image', compact('imageData'), [
+            'user' => auth()->user(),
+        ]);
     }
 
     // View Album

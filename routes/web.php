@@ -73,6 +73,11 @@ Route::post(
     [AlbumsController::class, 'updateImage']
 );
 
+Route::delete(
+    'delete_image/{imageId}',
+    [AlbumsController::class, 'deleteImage']
+);
+
 Route::get(
     'view_album/{albumId}',
     [AlbumsController::class, 'viewAlbum']
@@ -88,6 +93,11 @@ Route::post(
     [AlbumsController::class, 'updateAlbum']
 );
 
+Route::delete(
+    'delete_album/{albumId}',
+    [AlbumsController::class, 'deleteAlbum']
+);
+
 
 Route::get(
     'edit_user/{userId}',
@@ -97,6 +107,11 @@ Route::get(
 Route::post(
     'edit_user/{userId}',
     [UserController::class, 'updateUser']
+);
+
+Route::delete(
+    'delete_user/{userId}',
+    [UserController::class, 'deleteUser']
 );
 
 

@@ -24,7 +24,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <a href="/home">
-                                <button type="button" class="btn btn-primary">Guest</button>
+                                    <button type="button" class="btn btn-primary">Guest</button>
                                 </a>
                                 <div>
 
@@ -32,24 +32,23 @@
                             </div>
                         </div>
                     </form>
-                        
+
                     </p>
                 </div>
             </div>
 
-        </div> 
+        </div>
 
         @if ($errors->any())
-        <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
     </div>
-@endif
 
-</div>
- 
 @endsection
-

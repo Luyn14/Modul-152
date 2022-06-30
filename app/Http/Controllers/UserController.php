@@ -75,4 +75,13 @@ class UserController extends Controller
         $data->save();
         return redirect('/home');
     }
+
+    public function deleteUser(Request $request, int $userId)
+    {
+        $user = User::find($userId);
+
+        $user->delete();
+
+        return redirect('/home');
+    }
 }
