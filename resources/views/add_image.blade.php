@@ -14,24 +14,24 @@
                 </label>
                 <input type="file" class="form-control" required name="image">
             </div>
-
-            <div class="album">
-
-                <label for="album_id" class="form-label">Chosse Album</label> <br>
-                <select name="album_id" class="custom-select custom-select-lg mb-3">
-                    @foreach ($albums as $album)
-                        <option value="{{ $album->id }}">{{ $album->name }}</option>
-                    @endforeach
-
-                </select>
-
-            </div>
-
-
-
-            <div class="post_button">
-                <button type="submit" class="btn btn-success">Add</button>
-            </div>
+            @if ($albums->count() == 0)
+                <div class="container">
+                    <h3> Bitte erstellen sie zuerst ein Album bevor sie ein Bild Hochladen </h3>
+                </div>
+            @endif
+            @if ($albums->count() > 0)
+                <div class="album">
+                    <label for="album_id" class="form-label">Chosse Album</label> <br>
+                    <select name="album_id" class="custom-select custom-select-lg mb-3">
+                        @foreach ($albums as $album)
+                            <option value="{{ $album->id }}">{{ $album->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="post_button">
+                    <button type="submit" class="btn btn-success">Add</button>
+                </div>
+            @endif
         </form>
     </div>
 @endsection

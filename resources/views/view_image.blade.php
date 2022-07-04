@@ -6,7 +6,7 @@
     </script>
 
     <div class="container">
-        <h3>View all image</h3>
+        <h3>View all Images</h3>
         <hr>
         <table class="table">
             <thead>

@@ -172,6 +172,20 @@ li a:hover:not(.active) {
     background-color: rgb(173, 38, 38);
 }
 
+.col-lg-4 {
+    padding: 10px;
+
+}
+
+img {
+    padding: 10px;
+
+}
+
+.col-lg-6 {
+    padding-left: 25px;
+}
+
 .active {
     background-color: #04AA6D;
 }

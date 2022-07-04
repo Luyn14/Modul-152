@@ -14,26 +14,27 @@
     <link rel="stylesheet" href="../css/app.css">
     <?php
     $userLog = auth()->user();
-    if ($userLog != null) {
-        $userLog = auth()->user()->id;
-    }
     ?>
+    @if ($userLog != null)
+        <?php $userLog = auth()->user()->id; ?>
+    @endif
 </head>
 
 <body>
     <ul>
         <li><a id="navHome" href="/home">Home</a></li>
-        <?php if( $userLog != null){     ?>
-        <li><a id="navAddImage" href="/add-image">Add Image</a></li>
-        <?php  } ?>
-        <li><a id="navViewImage" href="/view-image">View Image</a></li>
-        <?php if( $userLog != null){     ?>
-        <li><a id="navAddAlbum" href="/add-album">Add Album</a></li>
-        <?php  } ?>
-        <?php if( $userLog != null) { 
-          if ($user->id = 1) {?>
-        <li><a id="navAdmin" href="/admin">Admin</a></li>
-        <?php }}?>
+        @isset($userLog)
+            <li><a id="navAddImage" href="/add-image">Add Image</a></li>
+        @endisset
+        <li><a id="navViewImage" href="/view-image">View Images</a></li>
+        @isset($userLog)
+            <li><a id="navAddAlbum" href="/add-album">Add Album</a></li>
+        @endisset
+        @isset($userLog)
+            @if ($userLog == 1)
+                <li><a id="navAdmin" href="/admin">Admin</a></li>
+            @endif
+        @endisset
 
 
     </ul>

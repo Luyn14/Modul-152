@@ -12,42 +12,28 @@
             @foreach ($image as $data)
                 <div class="col-lg-4">
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Image id</th>
-                                <th scope="col">Album id</th>
-                            </tr>
-                        </thead>
-                        <tbody>
 
 
-                            <tr>
-                                <td>{{ $data->id }}</td>
-                                <td>{{ $data->album_id }}</td>
+                    <img src="{{ url('public/Image/' . $data->image) }}" style="height: 300px; width: 400px;">
 
-                            </tr>
-                            <tr>
-                                <td colspan="2"><img src="{{ url('public/Image/' . $data->image) }}"
-                                        style="height: 300px; width: 400px;"></td>
-                            </tr>
-                            @isset($user)
-                                @if ($user->id == $album->user_id || $user->id == 1)
-                                    <tr>
-                                        <td> <a href="/edit_image/{{ $data->id }}"> <button class="btn btn-primary"> Edit
-                                                </button> </a> </td>
-                                        <td>
-                                            <form method="Post" action="/delete_image/{{ $data->id }}">
-                                                @method('delete')
-                                                @csrf
-                                                <button class="btn btn-danger"> Delete </button>
-                                        </td>
-                                        </form>
-                                    </tr>
-                                @endif
-                            @endisset
-                        </tbody>
-                    </table>
+                    @isset($user)
+                        @if ($user->id == $album->user_id || $user->id == 1)
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <a href="/edit_image/{{ $data->id }}"> <button class="btn btn-primary"> Edit
+                                        </button> </a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <form method="Post" action="/delete_image/{{ $data->id }}">
+                                        @method('delete')
+                                        @csrf
+                                        <button class="btn btn-danger"> Delete </button>
+                                </div>
+                            </div>
+                            </form>
+                        @endif
+                    @endisset
+
                 </div>
             @endforeach
         </div>
