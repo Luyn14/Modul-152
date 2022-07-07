@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('content')
+    <h3>Edit Album</h3>
     <div class="container">
         <form method="post" action="/edit_album/{{ $album->id }}" enctype="multipart/form-data">
             @csrf

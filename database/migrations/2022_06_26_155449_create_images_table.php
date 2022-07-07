@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('album_id')->unsigned();
+            $table->integer('user_id');
             $table->string('image');
             $table->foreign('album_id')->references('id')->on('albums')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->timestamps();

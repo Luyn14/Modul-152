@@ -5,8 +5,10 @@
         document.getElementById("navViewAlbum").classList.add('active');
     </script>
 
+    <h3>Album: {{ $album->name }}</h3>
+
     <div class="container">
-        <h3>{{ $album->name }}</h3>
+
         <h5>{{ $album->description }}</h5>
         <div class="row">
             @foreach ($image as $data)

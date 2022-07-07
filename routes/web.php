@@ -65,18 +65,22 @@ Route::get('/view-image', [AlbumsController::class, 'viewImage']);
 
 Route::get(
     'edit_image/{imageId}',
-    [AlbumsController::class, 'editImage']
+    [AlbumsController::class, 'editImage'],
+)->middleware(
+    ['auth', 'deleteImage:imageUserId']
 );
 
 Route::post(
     'edit_image/{imageId}',
-    [AlbumsController::class, 'updateImage']
+    [AlbumsController::class, 'updateImage'],
+)->middleware(
+    ['auth', 'deleteImage:imageUserId']
 );
 
 Route::delete(
     'delete_image/{imageId}',
-    [AlbumsController::class, 'deleteImage']
-);
+    [AlbumsController::class, 'deleteImage'],
+)->middleware(['auth', 'deleteImage:imageUserId']);
 
 Route::get(
     'view_album/{albumId}',
@@ -85,35 +89,46 @@ Route::get(
 
 Route::get(
     'edit_album/{albumId}',
-    [AlbumsController::class, 'editAlbum']
+    [AlbumsController::class, 'editAlbum'],
+)->middleware(
+    ['auth', 'deleteAlbum:albumUserId']
 );
 
-Route::post(
+Route::put(
     'edit_album/{albumId}',
-    [AlbumsController::class, 'updateAlbum']
+    [AlbumsController::class, 'updateAlbum'],
+)->middleware(
+    ['auth', 'deleteAlbum:albumUserId']
 );
 
 Route::delete(
     'delete_album/{albumId}',
-    [AlbumsController::class, 'deleteAlbum']
+    [AlbumsController::class, 'deleteAlbum'],
+)->middleware(
+    ['auth', 'deleteAlbum:albumUserId']
 );
 
 
 Route::get(
     'edit_user/{userId}',
-    [UserController::class, 'editUser']
+    [UserController::class, 'editUser'],
+)->middleware(
+    ['auth', 'admin']
 );
 
 Route::post(
     'edit_user/{userId}',
-    [UserController::class, 'updateUser']
+    [UserController::class, 'updateUser'],
+)->middleware(
+    ['auth', 'admin']
 );
 
 Route::delete(
     'delete_user/{userId}',
-    [UserController::class, 'deleteUser']
+    [UserController::class, 'deleteUser'],
+)->middleware(
+    ['auth', 'admin']
 );
-
 
 
 Route::get(

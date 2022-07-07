@@ -4,7 +4,7 @@
     <script>
         document.getElementById("navAddAlbum").classList.add('active');
     </script>
-
+    <h3>Add Album</h3>
     <div class="container">
         <form method="post" action="{{ route('albums.store') }}" enctype="multipart/form-data">
             @csrf

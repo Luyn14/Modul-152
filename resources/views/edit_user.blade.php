@@ -3,6 +3,7 @@
 @section('content')
 
     <title>User Bearbeiten</title>
+    <h3>Edit User</h3>
 
     <div class="container">
         <h3 class="text-center"> Benutzer bearbeiten </h3>
@@ -40,6 +41,4 @@
             </div>
         @endif
     </div>
-    </body>
-
-    </html>
+@endsection

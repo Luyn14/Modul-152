@@ -11,7 +11,7 @@
 
 
             <div class="card" style="width: 25rem;" id="user_loggedin">
-                <div class="card-body">
+                <div class="card-body" id="user_loggedin">
                     <h3>Eingelogt als: </h3>
 
                     <h3 class="card-title">

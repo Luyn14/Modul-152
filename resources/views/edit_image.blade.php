@@ -1,10 +1,7 @@
 @extends('layout')
 
 @section('content')
-    <script>
-        document.getElementById("navAddImage").classList.add('active');
-    </script>
-
+    <h3>Edit Image</h3>
     <div class="container" id="content">
         <form method="post" action="/edit_image/{{ $image->id }}" enctype="multipart/form-data">
             @csrf
@@ -30,6 +27,7 @@
                 <div class="post_button">
                     <button type="submit" class="btn btn-success">Add</button>
                 </div>
+            </div>
         </form>
     </div>
 @endsection

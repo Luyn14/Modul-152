@@ -87,7 +87,7 @@ a:hover {
 }
 
 #login {
-    background-color: #3eff4f;
+    background-color: #32a83ca3;
     border-radius: 10px;
     margin: auto;
     align-self: center;
@@ -203,9 +203,23 @@ h3 {
     text-align: center;
     margin-bottom: 10px;
     margin-top: 10px;
+    color: white;
 }
 
 h5 {
     margin: auto;
     text-align: center;
+}
+
+a:visited {
+    color: white;
+
+}
+
+a:hover {
+    color: rgb(123, 243, 254);
+}
+
+#user_loggedin {
+    background-color: rgb(40, 78, 48);
 }

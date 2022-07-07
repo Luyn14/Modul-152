@@ -7,7 +7,7 @@
             <h4 id="text-underlay">Willkommen zur Gallerie</h4>
             <div class=" card" style="width: 35rem;" id="login">
                 <div class="card-body">
-                    <h5 class="card-title"><a href="/register">Sign Up</a></h5>
+                    <h3 class="card-title"><a href="/register">Sign Up</a></h3>
                     <p class="card-text">Schon Angemeldet? Loggen sie sich ein.
                     <form method="POST" action="/login">
                         @csrf

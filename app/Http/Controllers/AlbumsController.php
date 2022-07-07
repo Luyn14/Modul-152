@@ -47,6 +47,8 @@ class AlbumsController extends Controller
 
             'album' => Album::find($albumId),
             'user' => auth()->user(),
+            $albumUser = Album::find($albumId),
+            'albumUserId' => $albumUser->user_id
 
         ]);
     }
@@ -86,6 +88,7 @@ class AlbumsController extends Controller
 
             $dataImage['image'] = $filename;
             $dataImage->album_id = $data['id'];
+            $dataImage->user_id = auth()->user()->id;
         }
 
         $dataImage->save();
@@ -93,7 +96,7 @@ class AlbumsController extends Controller
     }
 
     //Update Album
-    public function updateAlbum(Request $request, int $albumId)
+    public function updateAlbum(Request $request, int $albumId, int $albumUserId)
     {
 
         $data = Album::find($albumId);
@@ -140,6 +143,7 @@ class AlbumsController extends Controller
             $file->move(public_path('public/Image'), $filename);
             $data['image'] = $filename;
             $data->album_id = $request->album_id;
+            $data->user_id = auth()->user()->id;
         }
         $data->save();
         return redirect('/home');

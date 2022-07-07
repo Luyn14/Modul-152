@@ -80,7 +80,10 @@ class UserController extends Controller
     {
         $user = User::find($userId);
 
-        $user->delete();
+        if ($user->id != 1) {
+            $user->delete();
+        }
+
 
         return redirect('/home');
     }
